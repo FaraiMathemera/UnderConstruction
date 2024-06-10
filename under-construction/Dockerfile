@@ -4,9 +4,9 @@ WORKDIR /web
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN npm run build
+RUN npm run build --prod
 
 # Stage 2
 FROM nginx:stable
-COPY --from=angular_build /web/dist/under-construction /usr/share/nginx/html
-EXPOSE 80
+COPY --from=angular_build /web/dist/under-construction/browser /usr/share/nginx/html
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
