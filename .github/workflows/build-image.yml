@@ -38,7 +38,7 @@ jobs:
         uses: aws-action/amazon-ecr-login@v1
 
       - id: docker-tag
-        uses: under-construction/docker-tag-from-github-ref-action@v1
+        uses: UnderConstruction/docker-tag-from-github-ref-action@v1
 
       - name: Build & Push Docker Image
         id: docker-build
