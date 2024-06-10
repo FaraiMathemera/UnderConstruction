@@ -20,7 +20,9 @@ jobs:
     steps:
       - name: Git clone the repository
         uses: actions/checkout@v3
-      - name: configure aws credentials
+        with:
+          token: ${{secrets.WORKFLOW_TOKEN}}
+      - name: configure aws credentialscredentials
         uses: aws-actions/configure-aws-credentials@v1.7.0
         with:
           role-to-assume: <arn:aws:iam::518296100169:role/Github> #change to reflect your IAM role’s ARN
