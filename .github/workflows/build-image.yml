@@ -32,3 +32,20 @@ jobs:
       - name: Sts GetCallerIdentity
         run: |
           aws sts get-caller-identity
+
+      - name: ECR Login
+        id: login-ecr
+        uses: aws-action/amazon-ecr-login@v1
+
+      - id: docker-tag
+        uses: under-construction/docker-tag-from-github-ref-action@v1
+
+      - name: Build & Push Docker Image
+        id: docker-build
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: under-construction
+          IMAGE_TAG: ${{ steps.docker-tag.outputs.tag }}
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
