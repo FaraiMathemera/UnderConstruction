@@ -1,9 +1,9 @@
 # Stage 1
 FROM node:20.11.1-alpine as angular_build
 WORKDIR /web
-COPY package*.json ./
+COPY package*.json /web
 RUN npm install
-COPY . .
+COPY . /web
 RUN npm run build --prod
 
 # Stage 2
