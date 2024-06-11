@@ -2,7 +2,7 @@
 FROM node:20.11.1-alpine as angular_build
 WORKDIR /web
 COPY package*.json ./
-RUN npm install --silent
+RUN npm install
 COPY . .
 RUN npm run build --prod
 
