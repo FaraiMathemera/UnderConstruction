@@ -2,9 +2,9 @@ services:
   under_construction_app:
     container_name: under_construction_container
     build: .
-    image: awsbuild
+    image: awsbuild-latest
     ports: 
-      - 4200
+      - "4200:80"
     expose:
       - 4200
     networks:
