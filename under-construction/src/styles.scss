@@ -1,1 +1,108 @@
-/* You can add global styles to this file, and also import other style files */
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.page-content {
+  margin-left: 70px;
+  padding: 20px;
+  flex-grow: 1;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.side-menu {
+  width: 70px;
+  height: 100vh;
+  background-color: #2d3748;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+
+  nav {
+    width: 100%;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      li {
+        width: 100%;
+        margin-bottom: 20px;
+
+        a {
+          width: 100%;
+          text-align: center;
+          color: #fff;
+          text-decoration: none;
+          display: block;
+          padding: 10px 0;
+          transition: background-color 0.3s;
+
+          .icon-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            mat-icon {
+              font-size: 24px;
+              transition: color 0.3s;
+            }
+
+            span {
+              display: none;
+              position: absolute;
+              bottom: -20px;
+              background-color: #2d3748;
+              color: #fff;
+              padding: 2px 5px;
+              border-radius: 3px;
+              font-size: 12px;
+              white-space: nowrap;
+              transition: opacity 0.3s;
+              opacity: 0;
+            }
+
+            &:hover {
+              mat-icon {
+                color: #ff4081; /* Pink color */
+              }
+
+              span {
+                display: block;
+                opacity: 1;
+              }
+            }
+          }
+
+          &:hover {
+            background-color: #ff4081; /* Pink color */
+          }
+        }
+      }
+    }
+  }
+}

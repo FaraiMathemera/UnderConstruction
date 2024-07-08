@@ -1,0 +1,12 @@
+<div class="skills-container">
+  <h2>Skills</h2>
+  <div class="skills">
+    <div *ngFor="let skill of skills" class="skill">
+      <span class="skill-name">{{ skill.name }}</span>
+      <div class="progress-bar">
+        <div class="progress" [style.width.%]="skill.experience * 20"></div>
+      </div>
+      <span class="experience">{{ skill.experience }} years</span>
+    </div>
+  </div>
+</div>
